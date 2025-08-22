@@ -1,0 +1,14 @@
+
+body,html{
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* background-color:rgb(245, 198, 206); */
+    
+
+}
+ /* .main-div is external css used to set footer at the end */
+.main-div{       
+    flex:1;
+}

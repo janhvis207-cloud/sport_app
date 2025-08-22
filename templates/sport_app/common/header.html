@@ -1,0 +1,95 @@
+{% load static %}
+<style>
+  .nav-link,
+  .dropdown-item {
+
+    color: rgba(202, 208, 212, 1);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg" style="background-color: #0e214b;">
+  <div class="container-fluid">
+
+    <img src="{% static 'sport_app/images/logo3.jpg' %}" alt="" style="width: 60px; height: 60px; border-radius: 50%;">
+
+
+
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            AboutUs
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/about_academy/"style="color:black">About Academy</a></li>
+            <li><a class="dropdown-item" href="/about/"style="color:black">Mission,Vision & Motto</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/contact/">ContactUs</a>
+        </li>
+
+        
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/view_programs/"> Our Programs</a>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="#"></a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Sport Courses
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/cricket/"style="color:black">Cricket</a></li>
+            <li><a class="dropdown-item" href="/badminton/"style="color:black">Badminton</a></li>
+            <!-- <li><hr class="dropdown-divider"></li> -->
+            <li><a class="dropdown-item" href="/basketball/"style="color:black">Basketball</a></li>
+            <li><a class="dropdown-item" href="/football/"style="color:black">Football</a></li>
+          </ul>
+        </li>
+
+
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/coach/"> Coachs</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            User
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/registration/"style="color:black">Registration</a></li>
+            <li><a class="dropdown-item" href="/user_login/"style="color:black">Login</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+      <!-- <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-warning" type="submit">Search</button>
+      </form> -->
+    </div>
+  </div>
+</nav>

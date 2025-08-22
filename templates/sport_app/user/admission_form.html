@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admission Form</title>
+  {% include 'sport_app/common/common_css.html' %}
+
+  <style>
+    .heading {
+
+      color: black;
+      letter-spacing: 2px;
+      text-align: center;
+      font-size: 50px;
+      font-weight: bold;
+      /* transition: all 0.3s ease; */
+      /* z-index: 5;  */
+      font-family: 'Times New Roman', Times, serif;
+
+    }
+
+    .heading:hover {
+
+      /* transform: scale(1.5); */
+      color: goldenrod;
+
+    }
+
+    .heading:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    .bgimg1 {
+      background-image: url("{% static 'sport_app/images/background2 copy.jpg' %}");
+      background-size: cover;
+      background-repeat: no-repeat;
+
+
+    }
+
+    .bgimg1.overlay {
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(50, 50, 50, 0.5);
+      filter: brightness(40%);
+    }
+  </style>
+</head>
+
+<body class="bgimg1">
+
+  <div class="main-div">
+
+    <!--nav bar code start -->
+
+    {% include 'sport_app/user/user_header.html' %}
+
+    <!--nav bar code end -->
+
+    <h1 class="heading">Take Admission</h1>
+    <form action="/admission/" method="post" enctype="multipart/form-data">
+      {%csrf_token%}
+
+      <div class="container-fluid d-flex justify-content-center">
+        <div class="w-50" style="margin-bottom: 30px;">
+
+
+          <div class="form-floating mb-3 " style="margin-top: 30px;">
+            <select class="form-select mb-3" aria-label="Default select example" name="course_name">
+              <option value="">Choose Course</option>
+
+
+              {% for c in course_key%}
+              <option value={{c.sports_name}}>{{c.sports_name}}</option>
+
+              {%endfor%}
+            </select>
+            <label for="floatingInput">Course Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="Email" name="email" required
+              value={{email}}>
+            <label for="floatingInput">Email address</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Name" name="name" required>
+            <label for="floatingInput">Full Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="date" class="form-control" id="floatingInput" placeholder="DOB" name="DOB" required>
+            <label for="floatingInput">Date Of Birth</label>
+
+          </div>
+          <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="floatingInput" placeholder="Phone no." name="phone" required>
+            <label for="floatingInput">Phone no.</label>
+          </div>
+          <select class="form-select mb-3" aria-label="Default select example" name="gender">
+            <option selected>Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Others">Others</option>
+          </select>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Address" name="address" required>
+            <label for="floatingInput">Address</label>
+          </div>
+          <div class="input-group mb-3,text-center p-3">
+            <input type="file" class="form-control" id="inputGroupFile02" name="admission_pic" required>
+            <label class="input-group-text" for="inputGroupFile02">Upload</label>
+          </div>
+
+          <div class="container-fluid d-flex justify-content-center">
+            <button type="submit" class="btn btn-warning"> Submit </button>
+
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <!--footer code start-->
+
+  {% include 'sport_app/common/footer.html' %}
+
+  <!--footer code end-->
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

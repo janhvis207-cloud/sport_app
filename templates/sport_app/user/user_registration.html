@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration</title>
+  {% include 'sport_app/common/common_css.html' %}
+
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .background {
+      /* background: url("{% static 'sport_app/images/tennis.jpg' %}"); */
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+       background: linear-gradient(to right,#103c67, #d9e4ec);
+    }
+
+    .background::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    /* .overlay {
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.2);
+      z-index: 2;
+    } */
+
+    .register-card {
+      position: relative;
+      z-index: 2;
+      width: 550px;
+      height: 600px;
+      padding: 40px 35px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      /* border-radius: 20px; */
+      box-shadow: 0 0px 25px rgba(0, 255, 255, 0.2);
+      text-align: center;
+      margin: auto;
+      top: 5%;
+      color: #fff;
+      transition: 0.4s ease;
+    }
+
+    .register-card:hover {
+      box-shadow: 0 0px 35px #a8cac8;
+      transform: scale(1.02);
+    }
+
+    .register-card h2 {
+      color: burlywood;
+      margin-bottom: 5px;
+      font-size: 46px ;
+      font-weight: 500;
+    }
+
+    .register-card p {
+      color: bisque;
+      font-size: 14px;
+      margin-bottom: 30px;
+      letter-spacing: 3px;
+    }
+
+    .register-card input {
+      width: 100%;
+      padding: 10px;
+      margin: 20px 10;
+      border: none;
+      gap: 10px;
+      border-radius: 10px;
+      outline: none;
+    }
+
+    .register-card button {
+      width: 100%;
+      padding: 12px;
+      background: #053442;
+      color: #fff;
+      border: none;
+      font-size: 16px;
+      border-radius: 10px;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .register-card button:hover {
+      background: #1a596a;
+      box-shadow: 0 0 8px #a8cac8;
+    }
+
+    .sign-in {
+      font-size: 40px;
+      color: rgb(26, 26, 101);
+    }
+  </style>
+
+</head>
+
+<body>
+  <!--nav bar code start -->
+
+  {% include 'sport_app/common/header.html' %}
+
+  <!--nav bar code end -->
+
+  <div class="main-div">
+
+
+    <!-- <div class="div-form" style="margin-bottom: 80px; margin-top:30px ;"> -->
+    <div class="background">
+
+
+      <div class="register-card">
+        <h2 class="sign-in">Register Now !</h2>
+        <p style="font-size: larger;">Login to Falcon Sports Academy</p>
+        <form action="/user_login/" method="POST">
+          {% csrf_token %}
+
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" placeholder="useremail" name="email" required>
+          </div>
+
+
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="userpassword" name="password" required>
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="full name" name="name" required>
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="number" class="form-control" placeholder="phone no." name="phone" required>
+          </div>
+
+          <div class="input-group mb-3,text-center">
+            <input type="file" class="form-control" id="inputGroupFile02" name="profile_pic" required>
+            <label class="input-group-text" for="inputGroupFile02">upload</label>
+          </div>
+          <div class="text-center">
+            <button type="button" class="btn-warning" >Submit</button>
+
+          </div>
+
+        </form>
+        {% if messages %}
+
+        {% for m in messages %}
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert"
+          style="width: 50%;margin: auto;text-align: center;">
+          <strong>{{m}}</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+
+        {% endif%}
+      </div>
+    </div>
+
+  </div>
+
+  <!--footer code start-->
+
+  {% include 'sport_app/common/footer.html' %}
+
+  <!--footer code end-->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

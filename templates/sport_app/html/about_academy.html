@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+
+     {% include 'sport_app/common/common_css.html' %}
+
+    <style>
+        
+        .content{ 
+            display: flex;
+            font-size:large;
+            font-family:sans-serif;
+            text-decoration:underline;    
+        }
+        .para{
+            display: flex;
+            font-size:medium;
+            font-family:sans-serif;   
+        }
+        .bgimg1 {
+         background-image: url("{% static 'sport_app/images/canvas.jpg' %}");
+         background-size: cover;
+        background-repeat: no-repeat;
+  }
+   .image-academy{
+
+        background-image: url("{% static 'sport_app/images/urmila-academy.jpg' %}");
+        width: 100%;
+        height:90vh;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+
+    }
+    .overlay{
+
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(30,30,30,0.5);
+        z-index: 1;
+    }
+    .image-text{
+
+        position: relative;
+        z-index: 2;
+        color: white;
+        text-align: left;
+        margin-left: 80px;
+        margin-top: 80px ;
+        font-family: 'Montserrat',sans-serif;
+        font-size: 64px;
+        font-weight:bold;
+        transition: color 0.5s ease-in-out;
+        animation: slideDown 2s ease-out forwards;
+        top: -100px; 
+        letter-spacing: -3px;
+    }
+    .image-text:hover{
+        color:gold;
+        
+    }
+    @keyframes slideDown{
+        from{
+            top: -100px;
+            opacity: 0;
+        }
+        to{
+            top: 20%;
+            transform: translateY(-50%);
+            opacity: 1;
+        }
+    }
+    .paragraph{
+
+        color: white;
+        text-align: left;
+        margin-left: 80px;
+        font-size: 22px;
+        font-family: 'Montserrat',sans-serif;
+        transition: color 0.5s ease-in-out;
+        animation: riseUp 1.5s ease-out forwards;
+        bottom: -100px;
+        margin-top: 80px;
+        /* overflow-wrap: break-word; */
+        /* white-space: normal; */
+    }
+    .paragraph:hover{
+
+        color:floralwhite;
+    }
+      @keyframes riseUp{
+        0%{
+            bottom: -100px;
+            opacity: 0;
+        }
+        100%{
+            bottom: 20%;
+            transform: translateY(50%);
+            opacity: 1;
+        }
+    }
+    .about:hover:hover{
+         transform: scale(1.1);
+                  /*   box-shadow: 0 8px 16px rgba(220, 7, 7, 0.8); */
+                    z-index: 10; /* Bring the hovered card to the front */
+                    color:#203a73;
+                } 
+
+    
+    .left-slide{
+        position: relative;
+        animation: slideIn 1s ease-out forwards;
+        opacity: 0;
+    }
+    @keyframes slideIn{
+        0%{
+            right: -100px;
+            opacity:0;
+
+        }
+        100%{
+            right:0;
+            opacity: 2;
+        }
+    }
+
+
+
+
+    </style>
+</head >
+<body style="background-color:aliceblue;">
+
+    <!-- <div class="container-fluid" style="background-color: #102f72;"> -->
+   <div style="background-color: #315d8d">
+    <h2 style="text-align: right; margin-right: 20px; color: bisque; font-family: 'Times New Roman', Times, serif;">Where Champions Take Flight.</h2>
+   </div>
+    <!--nav bar code start -->
+
+        {% include 'sport_app/common/header.html'  %}
+      
+     
+    <!--nav bar code end -->
+
+    </div >
+
+   <div class="image-academy">
+    <div class="overlay">
+        <h1 class="image-text">FALCON SPORTS INSTITUTE</h1>
+        <p class="paragraph">Welcome To Falcon Academy- where speed meet skills,and champions are forged. <br>We're not just training atheletes, we're building legends across every sport</p>
+    </div>
+        <!-- <img src="{% static 'sport_app/images/urmila-academy.jpg' %}" alt="" style="height: 600px; width: 1530px; border: 1px solid black ;" > -->
+        
+    </div> 
+
+          <div  class="container-fluid d-flex justify-content-center">
+         <div>
+
+        <img src="{% static 'sport_app/images/football1.png' %}" alt="" style="margin-left: 150px; margin-top: 50px; height: 400px; width: 230px; margin-top: 100px; box-shadow: 0 4px 8px rgba(0,0,0,0.3); border-radius: 8px;">
+
+        </div>
+
+         <div class="left-slide">
+         <h1 style="text-align:center;  margin-top: 20px;" class="about"><b> ABOUT US🏅 </b></h1>
+         <h6 style="font-size: medium; text-align:justify; margin-left: 50px;"> <b>
+            Where Passion Meets Performance</b></h6>
+        <p style="font-size:medium; text-align:justify; margin-left: 50px;">
+               At Academy, we're more than just a sports academy—we're a launchpad for dreams, a home for hard work, and a community built on grit, growth, and glory.
+        </p>
+        <p style="font-size:medium; text-align:justify; margin-left: 50px;">Founded by athletes, built for champions, our academy was born from the belief that greatness isn’t given—it’s earned, honed, and shaped by relentless passion and the right guidance. Whether you're just starting out or looking to take your game to the next level, we’ve created a space where every drop of sweat has a purpose.
+
+        </p>
+        <h4 style="text-align: left; margin-left: 45px;">Our Mission🚀</h4>
+        <p style="font-size:medium; text-align:justify; margin-left: 50px;">
+            To nurture athletes of all ages and skill levels, equipping them not just with the techniques and tactics of the sport—but with the mindset, discipline, and values that extend far beyond the playing field.
+        </p>
+         <h4 style="text-align: left; margin-left: 45px;">Our Vision🧐</h4>
+         <p style="font-size:medium; text-align:justify; margin-left: 50px;">
+            To be a powerhouse of potential—where future champions are discovered, dreams are fueled by discipline, and the pursuit of excellence becomes a daily habit.
+            We envision a world where every athlete, regardless of background or beginning, has the opportunity, the space, and the support to rise to their full potential. Our goal is to develop not just elite performers, but resilient, respectful, and well-rounded individuals who lead by example—on and off the field.
+         </p>
+         <h4 style="text-align: left; margin-left: 45px;">Our Goal🎯</h4>
+         <p style="font-size:medium; text-align:justify; margin-left: 50px;">To unlock the athlete in everyone.
+           We aim to create an environment where consistent training, expert coaching, and personal dedication converge to produce excellence. Our goal is to prepare athletes not only to win matches, but to face life’s challenges with confidence, leadership, and integrity. We measure success not just in trophies, but in growth, character, and the positive impact our athletes make wherever they go.</p>
+        <h6 style="font-size: medium; text-align:justify; margin-left: 300px; margin-top: 50px; margin-bottom: 50px;"> <b>
+            Join the movement. Become unstoppable. Welcome to Our Academy🎓</b></h6>
+
+           
+
+        </div>
+        </div>
+
+     <!-- <div > -->
+         <!-- <h1 style="text-align:center;"> ABOUT US </h1> -->
+         <!-- <p1 style="font-size: medium; text-align: center;"> -->
+            <!-- Where Passion Meets Performance -->
+            <!-- Welcome to Momentum Sports Academy -->
+            <!-- We’re not just another training ground — we’re the launchpad for your greatness.</p1> -->
+    <!-- </div> -->
+     
+
+
+<div class="container-fluid" style="background-color:#102f72; margin-top: 10px; ">
+    <!--footer code start-->
+
+      {% include 'sport_app/common/footer.html' %}
+
+    <!--footer code end-->
+ </div>
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

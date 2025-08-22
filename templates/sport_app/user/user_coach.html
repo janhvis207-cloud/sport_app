@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>user_coach</title>
+   {% include 'sport_app/common/common_css.html' %}{% include 'sport_app/common/common_css.html' %}
+   <style>
+      .image-sport {
+
+         background-image: url("{% static 'sport_app/images/screenshot.png' %}");
+         width: 100%;
+         height: 50vh;
+         background-repeat: no-repeat;
+         background-position: center;
+         background-size: cover;
+         position: relative;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         overflow: hidden;
+         filter: grayscale(30%)brightness(0.8);
+
+      }
+
+
+      body {
+         margin: 0;
+         font-family: 'Times New Roman', Times, serif;
+         background: #274e7a;
+         color: #111;
+      }
+
+      .top-bar {
+         display: flex;
+         align-items: flex-start;
+         justify-content: space-between;
+         padding: 10px 20px;
+         background-color: #274e7a;
+      }
+
+      .vertical-text {
+         writing-mode: vertical-rl;
+         transform: rotate(180deg);
+         font-size: 20px;
+         font-weight: bold;
+         color: antiquewhite;
+         letter-spacing: 12px;
+         margin-top: 17px;
+         text-align: left;
+         width: 50px;
+         background-color: #09213a;
+
+      }
+
+      .vertical-text:hover {
+         color: goldenrod;
+      }
+
+      .header-content {
+         font-size: 54px;
+         color: wheat;
+         margin-top: 30px;
+         margin-left: 90px;
+         text-align: center;
+         background-color: #09213a;
+      }
+
+      .header-content:hover {
+         color: goldenrod;
+      }
+
+      .contact {
+         text-align: right;
+         margin-bottom: 60px;
+         margin-right: 40px;
+      }
+
+      .contact p {
+         margin: 0;
+         font-weight: bold;
+         font-size: 22px;
+         color: antiquewhite;
+      }
+
+      .contact p:hover {
+         color: goldenrod;
+      }
+
+      .icons-container {
+         display: flex;
+         justify-content: flex-end;
+         gap: 15px;
+         padding-right: 20px;
+         /* font-size: 20px;
+  margin-right: 40px;
+  color: #1b3265;
+  cursor: pointer;
+  transition: 0.3s ease; */
+
+      }
+
+      .icons-shape {
+         width: 50px;
+         height: 50px;
+         border-radius: 50px;
+         background-color: beige;
+         color: #0b233c;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         font-size: 22px;
+         transition: transform 0.3s ease;
+
+      }
+
+      .icons-shape:hover {
+         color: #415fa1;
+      }
+
+      /* Glass Cards */
+      .cards-container {
+         display: flex;
+         /* justify-content:flex-start; */
+         /* align-items: flex-start;  */
+         gap: 20px;
+         padding: 60px 40px;
+         /* flex-wrap: wrap; */
+         background-color: #274e7a;
+         margin-top: -50px;
+      }
+
+
+      Scroll-triggered delay .card-1 {
+         animation-delay: 0.2s;
+      }
+
+      .card-2 {
+         animation-delay: 0.4s;
+      }
+
+      .card-3 {
+         animation-delay: 0.6s;
+      }
+
+      .glass-card img {
+         width: 100%;
+         height: 150px;
+         object-fit: cover;
+         border-radius: 10px;
+         margin-bottom: 10px;
+      }
+
+      .glass-card h2 {
+         margin: 10px 0 5px;
+         color: #0a1a3d;
+      }
+
+      .glass-card p {
+         margin: 3px 0;
+      }
+
+      /* Animation Keyframe */
+      @keyframes fadeInUp {
+         from {
+            opacity: 0;
+            transform: translateY(80px);
+         }
+
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
+
+      .glass-card {
+         background: rgba(255, 255, 255, 0.1);
+         backdrop-filter: blur(15px);
+         -webkit-backdrop-filter: blur(15px);
+         border-radius: 20px;
+         border: 1px solid rgba(255, 255, 255, 0.2);
+         box-shadow: 0 0 30px rgba(0, 255, 255, 0.15);
+         transition: transform 0.5s ease, box-shadow 0.5s ease, scale 0.5s;
+         padding: 30px;
+         text-align: center;
+         color: #17062b;
+         max-width: 350px;
+         opacity: 0;
+         transform: translateY(80px);
+         animation: fadeInUp 1s ease-out forwards;
+      }
+
+      .glass-card:hover {
+         transform: translateY(-10px) scale(1.05);
+         box-shadow:
+            0 0 10px rgba(6, 24, 112, 0.4),
+            0 0 10px rgba(73, 89, 168, 0.4),
+            0 0 40px rgba(0, 255, 255, 0.2);
+         border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      /* Add this to enhance the glowing text inside the card */
+      .glass-card h2 {
+         font-size: 1.5rem;
+         color: #063637;
+         text-shadow: 0 0 5px #0f5154, 0 0 10px #0d4c4e;
+      }
+
+      .font {
+
+         font-size: medium;
+         word-spacing: 3px;
+      }
+   </style>
+
+</head>
+
+<body class="bgimg1">
+   <div class="main-div">
+
+      <div style="background-color: #315d8d">
+         <h2
+            style="text-align: right; margin-right: 20px; color: bisque; font-family: 'Times New Roman', Times, serif;">
+            Where Champions Take Flight.</h2>
+      </div>
+      <!--nav bar code start -->
+
+      {% include 'sport_app/common/header.html' %}
+
+
+      <!--nav bar code end -->
+
+
+      <div class="image-sport"> </div>
+
+      <!-- <div style="background-color:;"> -->
+      <div class="top-bar">
+         <h1 class="header-content">Masters of the Game</h1>
+         <div class="contact">
+            <p>Connect With Us</p>
+            <div class="icons-container">
+               <div class="icons-shape"><i class="fas fa-phone"></i></div>
+               <div class="icons-shape"><i class="fas fa-envelope"></i></div>
+            </div>
+         </div>
+      </div>
+
+
+
+      <div class="cards-container">
+
+         <div class="vertical-text">EXPERT COACH</div>
+
+
+         {% for C in coach_key %}
+
+
+         <div class="glass-card">
+            <div class="glass-card h2">
+               <img src="/media/{{C.profile_pic}}" alt="">
+
+
+               <h6 style="margin-left:15px ; margin-top: 10px;">Coach Name:{{C.name}}</h6>
+               <h6 style="margin-left:15px ;">Email:{{C.email}}</h6>
+               <h6 style="margin-left:15px ;">Phone:{{C.phone}}</h6>
+               <h6 style="margin-left:15px ;">Age:{{C.age}}</h6>
+               <h6 style="margin-left:15px ;">Experience:{{C.experience}}</h6>
+               <h6 style="margin-left:15px ;">Sports name:{{C.sport_name}}</h6>
+
+
+
+            </div>
+         </div>
+
+         {% endfor%}
+      </div>
+
+   </div>
+
+
+
+
+   <!--footer code start-->
+
+   {% include 'sport_app/common/footer.html' %}
+
+   <!--footer code end-->
+
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>

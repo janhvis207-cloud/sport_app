@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About Us</title>
+
+    {% include 'sport_app/common/common_css.html' %}
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        /* 🔹 Top Banner Section */
+        .banner {
+            position: relative;
+            height: 300px;
+            background: url("{% static 'sport_app/images/about2.jpg' %}") center/cover no-repeat;
+            filter: grayscale(50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+        }
+
+        .banner::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            /* dark overlay */
+        }
+
+        .banner h1 {
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 60px;
+            font-weight: 300;
+            text-shadow: 2px 2px 4px #000;
+            transition: color 0.5s ease-in-out;
+            animation: slideDown 2s ease-out forwards;
+            top: -100px;
+            margin: 50px;
+        }
+
+        @keyframes slideDown {
+            from {
+                top: -100px;
+                opacity: 0;
+            }
+
+            to {
+                top: 30%;
+                /* transform: translateY(-50%); */
+                opacity: 1;
+            }
+        }
+
+        /*  Container for cards */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .card {
+            position: relative;
+            overflow: hidden;
+            background: #a7b5d1;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: color 0.4s ease;
+            z-index: 1;
+            height: 430px;
+        }
+
+        /* By default hidden background */
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: -1;
+        }
+
+        /* Different images for each card */
+        .card-vision::before {
+            background: url("{% static 'sport_app/images/vision.jpg' %}") center/cover no-repeat;
+        }
+
+        .card-mission::before {
+            background: url("{% static 'sport_app/images/mission.avif' %}") center/cover no-repeat;
+        }
+
+        .card-motto::before {
+            background: url("{% static 'sport_app/images/motto.jpg' %}") center/cover no-repeat;
+        }
+
+        /* Different overlay colors */
+        .card-vision:hover::before {
+            opacity: 0.5;
+            background-color: rgba(5, 77, 5, 0.4);
+            /* Green shade */
+        }
+
+        .card-mission:hover::before {
+            opacity: 0.5;
+            background-color: rgba(0, 0, 255, 0.4);
+            /* Blue shade */
+        }
+
+        .card-motto:hover::before {
+            opacity: 0.5;
+            background-color: rgba(128, 0, 128, 0.4);
+            /* Purple shade */
+        }
+
+        /* Text color change on hover */
+        .card h2 {
+            margin-top: 0;
+            color: rgb(61, 39, 10);
+            font-weight: bold;
+            font-size: 35px;
+        }
+
+        .card:hover h2,
+        .card:hover p {
+            color: #030f1c;
+        }
+
+        .icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div style="background-color: #315d8d">
+        <h2 style="text-align: right; margin-right: 20px; color: bisque; font-family: 'Times New Roman', Times, serif;">
+            Where Champions Take Flight.</h2>
+    </div>
+    <!--nav bar code start -->
+
+    {% include 'sport_app/common/header.html' %}
+
+    <!-- 🔹 Banner Section -->
+    <div class="banner">
+        <h1>Vision, Mission & Motto</h1> <br>
+        <!-- <p class="p">"Falcon Sports Academy - A Mission to Insipire, A Vision to Lead."</p> -->
+    </div>
+
+    <!-- 🔹 Cards Section -->
+    <div class="container">
+        <!-- Vision -->
+
+        <div class="card card-vision">
+            <h2>Vision🧐</h2>
+            <p style="line-height: 1.6;font-size: 17px;">"To become a premier hub for sports excellence by nurturing young talent with discipline, dedication, and
+                integrity —
+                building leaders both on the field and in life.
+                We aim at creating an inclusive community of children who are imbibed with a blend of values, and a
+                bent-on technology, and purport to provide exciting and diverse opportunities and experiences
+                which could result in unimaginable possibilities."</p>
+        </div>
+
+
+        <!-- Mission -->
+
+        <div class="card card-mission">
+            <h2>Mission🚀</h2>
+            <p style="line-height: 1.6;font-size: 17px;">"To deliver quality coaching, create a growth-driven environment, and inspire athletes to
+                reach their full potential through hard work, passion, and purpose. To ignite the minds of the learners
+                to dream big and possess valuable life skills, by providing them valued learning experiences
+                to help them contribute to the wellbeing of society."</p>
+        </div>
+
+
+        <!-- Motto -->
+
+        <div class="card card-motto">
+            <h2>Motto🎯</h2>
+            <p style="line-height: 1.6; font-size: 17px;">"Discipline. Determination. Domination.
+                We train not just to play, but to rise, lead, and leave a legacy. Our motto is a constant reminder that
+                the well-being and safety of others always comes prior to our own welfare, comfort and security.
+                We believe in the saying of the Bible,"</p>
+        </div>
+    </div>
+
+    <!--footer code start-->
+
+    {% include 'sport_app/common/footer.html' %}
+
+    <!--footer code end-->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

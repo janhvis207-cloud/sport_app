@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coach</title>
+    {% include 'sport_app/common/common_css.html' %}{% include 'sport_app/common/common_css.html' %}
+    <style>
+       .flex-container{
+        display: flex;
+        width: 100%;
+        height: 400px;
+        flex-wrap: wrap;
+        gap: 20px;
+       }
+
+       .item-div{
+
+        width: 250px;
+        height: 400px;
+        background-color: beige;
+        margin-left: 20px;
+         box-shadow:0 8px 16px rgb(0,0,0.8);
+      
+       }
+
+      .item-div img{
+        width: 100%;
+        height: 200px;
+      }
+      .bgimg1 {
+         background-image: url("{% static 'sport_app/images/canvas.jpg' %}");
+         background-size: cover;
+        background-repeat: no-repeat;
+  }
+
+     .heading{
+
+      color: rgb(8, 8, 56);
+      letter-spacing: 2px;
+      text-align: center;
+      font-size: 50px;
+      font-weight: bold;
+      /* transition: all 0.3s ease; */
+       /* z-index: 5;  */
+       font-family:'Times New Roman', Times, serif ;
+    
+     }
+
+     .heading:hover{
+      
+     /* transform: scale(1.5); */
+     color:darkgreen;
+
+     }
+     
+     .heading:hover::after{
+      width: 100%;
+      left: 0;
+     }
+
+
+</style>
+
+</head>
+<body class="bgimg1">
+   <div class="main-div"> 
+<!--nav bar code start -->
+
+        {% include 'sport_app/common/header.html'  %}
+      
+     
+    <!--nav bar code end -->
+
+
+ <h1 class="heading"> Guiding Stars </h1>
+    <div class="flex-container">
+       {% for C in coach_key %}
+    
+
+     
+
+      <div class="item-div">
+       <img src="/media/{{C.profile_pic}}" alt="">
+
+
+       <h6 style="margin-left:15px ; margin-top: 10px;">Coach Name:{{C.name}}</h6>
+       <h6 style="margin-left:15px ;">Email:{{C.email}}</h6>
+       <h6 style="margin-left:15px ;">Phone:{{C.phone}}</h6>
+       <h6 style="margin-left:15px ;">Age:{{C.age}}</h6>
+       <h6 style="margin-left:15px ;">Experience:{{C.experience}}</h6>
+       <h6 style="margin-left:15px ;">Sports name:{{C.sport_name}}</h6>
+       
+       
+
+
+      </div>
+
+    {% endfor%}
+</div>
+
+</div>
+
+
+
+
+<!--footer code start-->
+
+    {% include 'sport_app/common/footer.html' %}
+
+<!--footer code end-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    
+
+</body>
+</html>
